@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { link } from 'fs';
 import { SettingsService } from '../../services/settings.service';
 
 @Component({
