@@ -64,7 +64,7 @@ export class PerfilComponent implements OnInit {
 
         this.imgTemp = reader.result;
 
-    }
+    };
 
   }
 
