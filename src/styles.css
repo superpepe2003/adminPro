@@ -24,6 +24,14 @@
     height: 200px;
 }
 
+.w50 {
+    width: 50px;
+}
+
+.w75 {
+    width: 75px;
+}
+
 .w100 {
     width: 100px;
 }

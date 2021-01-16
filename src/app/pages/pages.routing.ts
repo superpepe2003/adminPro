@@ -14,6 +14,8 @@ import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component'
 import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
 import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
 import { MedicoComponent } from './mantenimientos/medicos/medico.component';
+import { BusquedasComponent } from './busquedas/busquedas.component';
+import { AdminGuard } from '../guards/admin.guard';
 
 
 const routes: Routes = [
@@ -23,15 +25,16 @@ const routes: Routes = [
         canActivate: [ AuthGuard ],
         children: [
           { path: '', component: DashboardComponent, data: { titulo: 'Dashboard'} },
-          { path: 'progress', component: ProgressComponent , data: { titulo: 'ProgressBar'} },
-          { path: 'grafica1', component: Grafica1Component , data: { titulo: 'Gráfica'} },
           { path: 'account-settings', component: AccountSettingsComponent , data: { titulo: 'Ajuste de Cuenta'} },
+          { path: 'buscar/:termino', component: BusquedasComponent , data: { titulo: 'Búsquedas'} },
+          { path: 'grafica1', component: Grafica1Component , data: { titulo: 'Gráfica'} },
+          { path: 'perfil', component: PerfilComponent , data: { titulo: 'Perfil Usuario'} },
+          { path: 'progress', component: ProgressComponent , data: { titulo: 'ProgressBar'} },
           { path: 'promesas', component: PromesasComponent , data: { titulo: 'Promesas'} },
           { path: 'rxjs', component: RxjsComponent , data: { titulo: 'Rxjs'} },
-          { path: 'perfil', component: PerfilComponent , data: { titulo: 'Perfil Usuario'} },
 
           // Mantenimientos
-          { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Usuarios de aplicacion' } },
+          { path: 'usuarios', canActivate: [ AdminGuard ], component: UsuariosComponent, data: { titulo: 'Usuarios de aplicacion' } },
           { path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Hospitales de aplicacion' } },
           { path: 'medicos', component: MedicosComponent, data: { titulo: 'Médicos de aplicacion' } },
           { path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Médicos de aplicacion' } },
