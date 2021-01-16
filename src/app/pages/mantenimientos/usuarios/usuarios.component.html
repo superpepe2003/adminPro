@@ -3,7 +3,11 @@
         <div class="card">
             <div class="card-body">
 
-                <input type="text" class="form-control" placeholder="Buscar usuario..." (keyup)="buscar( txtTermino.value )" #txtTermino/>
+                <input type="text" 
+                       class="form-control" 
+                       placeholder="Buscar usuario..." 
+                       (keyup)="buscar( txtTermino.value )" 
+                       #txtTermino/>
 
             </div>
         </div>
@@ -44,7 +48,10 @@
                         <tbody>
                             <tr *ngFor="let usuario of usuarios">
                                 <td class="text-center">
-                                    <img [src]="usuario.imagenUrl" alt="Avatar de Usuario" class="avatar cursor" (click)="abrirModal(usuario)">
+                                    <img [src]="usuario.imagenUrl" 
+                                         alt="Avatar de Usuario" 
+                                         class="avatar cursor" 
+                                         (click)="abrirModal(usuario)">
                                 </td>
                                 <td>{{ usuario.email }}</td>
                                 <td>{{ usuario.nombre }}</td>

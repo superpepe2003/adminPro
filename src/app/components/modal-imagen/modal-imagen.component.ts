@@ -47,12 +47,15 @@ export class ModalImagenComponent implements OnInit {
     const id = this.modalImagenService.id;
     const tipo = this.modalImagenService.tipo;
 
+    console.log(id);
+    console.log(tipo);
+
     this.fileUploadService
         .actualizarFoto( this.imagenSubir, tipo, id )
         .then( img => {
 
           Swal.fire('Imagen Guardada', 'Cambios fueron guardados', 'success');
-          this.modalImagenService.nuevaImagen.emit(img);
+          this.modalImagenService.nuevaImagen.emit(img.nombreArchivo);
           this.cerrarModal();
 
         }, (err) => {
